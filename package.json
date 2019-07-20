@@ -3,22 +3,41 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-loader": "^8.0.6",
+    "circular-dependency-plugin": "^5.0.2",
+    "compression-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.1.0",
+    "eslint": "5.16.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-config-prettier": "4.1.0",
+    "eslint-import-resolver-webpack": "0.11.1",
+    "eslint-plugin-import": "2.17.2",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-react-hooks": "1.6.0",
+    "eslint-plugin-redux-saga": "^1.0.0",
+    "html-loader": "^0.5.5",
+    "ngrok": "^3.2.3",
+    "offline-plugin": "^5.0.7",
     "postcss-loader": "^3.0.0",
     "postcss-reporter": "^6.0.1",
     "prettier": "^1.18.2",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.1.0",
     "sass-loader": "^7.1.0",
     "scss-loader": "^0.0.1",
     "ts-loader": "^6.0.4",
-    "webpack": "^4.36.1",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2",
-    "webpack-merge": "^4.2.1",
     "tslint": "^5.18.0",
     "tslint-loader": "^3.5.4",
     "tslint-react": "^4.0.0",
-    "typescript": "3.5.3"
+    "typescript": "3.5.3",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-merge": "^4.2.1",
+    "webpack-pwa-manifest": "^4.0.0"
   },
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
@@ -30,6 +49,7 @@
     "@types/react-dom": "16.8.4",
     "clean-webpack-plugin": "^3.0.0",
     "core-js": "3",
+    "cross-env": "^5.2.0",
     "fork-ts-checker-webpack-plugin": "^1.4.3",
     "html-webpack-harddisk-plugin": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
@@ -43,11 +63,18 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.12.8",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "redux-saga": "^1.0.5"
   },
   "scripts": {
+    "start:node": "cross-env NODE_ENV=development node server",
     "start": "webpack --progress --colors --mode development --config scripts/webpack/webpack.dev.js",
     "dev": "webpack-dev-server --progress --colors --mode development --config scripts/webpack/webpack.hot.js",
+    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern scripts",
+    "lint:eslint:fix": "eslint --ignore-path .gitignore --ignore-pattern scripts --fix",
+    "lint:js": "npm run lint:eslint -- . ",
+    "lint:js:fix": "npm run lint:eslint:fix -- . ",
+    "lint:staged": "lint-staged",
     "tslint": "tslint -c tslint.json --project tsconfig.json",
     "typecheck": "tsc --noEmit",
     "prettier:check": "prettier --list-different \"**/*.{ts,tsx,scss}\"",
@@ -61,6 +88,10 @@
   "lint-staged": {
     "*.{ts,tsx,json,scss}": [
       "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "npm run lint:eslint:fix",
       "git add"
     ],
     "*pkg/**/*.go": [

@@ -1,13 +1,13 @@
-'use strict';
+/* eslint-disable global-require */
 
 const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const IgnoreNotFoundExportPlugin = require("./IgnoreNotFoundExportPlugin.js");
+const common = require('./webpack.common.js');
+const IgnoreNotFoundExportPlugin = require('./IgnoreNotFoundExportPlugin.js');
 
 module.exports = merge(common, {
   entry: {
@@ -81,12 +81,12 @@ module.exports = merge(common, {
           {
             loader: 'postcss-loader',
             options: {
-              config: { path: __dirname + '/postcss.config.js' },
+              config: { path: `${__dirname}/postcss.config.js` },
             },
           },
           {
-            loader: 'sass-loader'
-          }
+            loader: 'sass-loader',
+          },
         ],
       },
       {

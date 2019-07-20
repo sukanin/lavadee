@@ -1,5 +1,3 @@
-'use strict';
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = function(options) {
@@ -12,7 +10,7 @@ module.exports = function(options) {
         options: {
           importLoaders: 2,
           url: options.preserveUrl,
-          sourceMap: options.sourceMap
+          sourceMap: options.sourceMap,
         },
       },
       {
@@ -25,7 +23,7 @@ module.exports = function(options) {
       {
         loader: 'sass-loader',
         options: {
-          sourceMap: options.sourceMap
+          sourceMap: options.sourceMap,
         },
       },
     ],
