@@ -2,6 +2,24 @@
   "name": "lavadee",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "postcss-loader": "^3.0.0",
+    "postcss-reporter": "^6.0.1",
+    "prettier": "^1.18.2",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.1.0",
+    "sass-loader": "^7.1.0",
+    "scss-loader": "^0.0.1",
+    "ts-loader": "^6.0.4",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1",
+    "tslint": "^5.18.0",
+    "tslint-loader": "^3.5.4",
+    "tslint-react": "^4.0.0",
+    "typescript": "3.5.3"
+  },
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-typescript": "^7.3.3",
@@ -10,10 +28,8 @@
     "@types/node": "12.6.3",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
-    "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "core-js": "3",
-    "css-loader": "^3.1.0",
     "fork-ts-checker-webpack-plugin": "^1.4.3",
     "html-webpack-harddisk-plugin": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
@@ -24,26 +40,16 @@
     "mini-css-extract-plugin": "^0.8.0",
     "office-ui-fabric-react": "^7.10.0",
     "postcss-browser-reporter": "^0.6.0",
-    "postcss-loader": "^3.0.0",
-    "postcss-reporter": "^6.0.1",
-    "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.12.8",
-    "react-scripts": "3.0.1",
-    "sass-loader": "^7.1.0",
-    "scss-loader": "^0.0.1",
-    "ts-loader": "^6.0.4",
-    "tslint": "^5.18.0",
-    "tslint-loader": "^3.5.4",
-    "tslint-react": "^4.0.0",
-    "typescript": "3.5.3",
-    "webpack": "^4.36.1",
-    "webpack-merge": "^4.2.1"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "webpack --progress --colors --mode development --config scripts/webpack/webpack.dev.js",
     "dev": "webpack-dev-server --progress --colors --mode development --config scripts/webpack/webpack.hot.js",
+    "tslint": "tslint -c tslint.json --project tsconfig.json",
+    "typecheck": "tsc --noEmit",
     "prettier:check": "prettier --list-different \"**/*.{ts,tsx,scss}\"",
     "prettier:write": "prettier --list-different \"**/*.{ts,tsx,scss}\" --write"
   },
@@ -67,8 +73,7 @@
     "singleQuote": true,
     "printWidth": 120
   },
-  "devDependencies": {
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+  "engines": {
+    "node": ">=10"
   }
 }
