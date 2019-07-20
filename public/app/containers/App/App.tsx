@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Content } from '../../components/Content/Content';
 import { Footer } from '../../components/Footer/Footer';
 import { NavBar } from '../../components/NavBar/NavBar';
 import { SidebarMenu } from '../../components/SidebarMenu/SidebarMenu';
+import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
 
 type AppState = {
   isOpen: boolean;
@@ -20,22 +20,22 @@ export class App extends Component<any, AppState> {
 
   render() {
     return (
-      <div className="App">
-        <div className="header">
-          <NavBar />
-        </div>
-        <div className="body">
-          <div className="content">
-            <Content />
+      <Fabric>
+        <div className="App">
+          <div className="header">
+            <NavBar />
           </div>
-          <div className="sidebar">
-            <SidebarMenu />
+          <div className="body">
+            <div className="content"></div>
+            <div className="sidebar">
+              <SidebarMenu />
+            </div>
+          </div>
+          <div className="footer">
+            <Footer />
           </div>
         </div>
-        <div className="footer">
-          <Footer />
-        </div>
-      </div>
+      </Fabric>
     );
   }
 }

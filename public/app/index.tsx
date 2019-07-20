@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { App } from './containers/App/App';
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
 
-initializeIcons(/* optional base url */);
+// Register icons and pull the fonts from the default SharePoint cdn.
+initializeIcons();
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('main'));

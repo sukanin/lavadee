@@ -1,18 +1,33 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-US">
 
 <head>
   <!-- The first thing in any HTML file should be the charset -->
-  <meta charset="utf-8">
-
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
   <!-- Make the page mobile compatible -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no" />
 
   <!-- Allow installing the app to the homescreen -->
   <meta name="mobile-web-app-capable" content="yes">
 
   <link rel="icon" href="/favicon.ico" />
-  <title>React.js Boilerplate</title>
+  <title>LaVaDee</title>
+  <style type="text/css">
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+    }
+    .loading {
+      align-items: center;
+      background-color: #faf9f8;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -22,7 +37,17 @@
     <strong>enable JS</strong> to make this app work.</noscript>
 
   <!-- The app hooks into this div -->
-  <div id="app"></div>
+  <div id="main">
+      <div class="loading">
+        <img
+          class="loadingImage"
+          src="https://static2.sharepointonline.com/files/fabric/fabric-website/images/spinner.gif"
+          alt="Loading"
+          width="32"
+          height="32"
+        />
+      </div>
+    </div>
 
   <!-- Open Sans Font -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
