@@ -1,25 +1,45 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "preserve"
+    "outDir": "public/dist",
+    "target": "es5",
+    "lib": ["es6", "dom"],
+    "rootDirs": ["public/"],
+    "jsx": "react",
+    "module": "esnext",
+    "declaration": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "removeComments": false,
+    "inlineSourceMap": false,
+    "sourceMap": true,
+    "noEmitOnError": false,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitUseStrict": false,
+    "noImplicitAny": false,
+    "downlevelIteration": true,
+    "noUnusedLocals": true,
+    "baseUrl": "public",
+    "pretty": true,
+    "typeRoots": ["node_modules/@types", "public/app/types"],
+    "paths": {
+      "app": ["app"],
+      "sass": ["sass"]
+    },
+    "skipLibCheck": true,
+    "preserveSymlinks": true
   },
   "include": [
-    "src"
+    "public/app/**/*.ts",
+    "public/app/**/*.tsx",
+    "public/test/**/*.ts",
+    "public/vendor/**/*.ts",
+    "public/e2e-test/**/*.ts"
   ]
 }
