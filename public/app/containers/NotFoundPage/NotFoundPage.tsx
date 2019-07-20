@@ -1,10 +1,10 @@
 import React from 'react';
 
-export class TodoApp extends React.Component<any, any> {
+export class NotFoundPage extends React.Component<any, any> {
   render() {
     return (
       <div>
-        <p>Hello World</p>
+        <p>Not Found Page</p>
       </div>
     );
   }

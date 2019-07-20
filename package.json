@@ -20,6 +20,7 @@
     "eslint-plugin-redux-saga": "^1.0.0",
     "html-loader": "^0.5.5",
     "ngrok": "^3.2.3",
+    "node-sass": "^4.12.0",
     "offline-plugin": "^5.0.7",
     "postcss-loader": "^3.0.0",
     "postcss-reporter": "^6.0.1",
@@ -76,6 +77,7 @@
     "lint:js:fix": "npm run lint:eslint:fix -- . ",
     "lint:staged": "lint-staged",
     "tslint": "tslint -c tslint.json --project tsconfig.json",
+    "tslint:fix": "tslint -c tslint.json --project tsconfig.json --fix",
     "typecheck": "tsc --noEmit",
     "prettier:check": "prettier --list-different \"**/*.{ts,tsx,scss}\"",
     "prettier:write": "prettier --list-different \"**/*.{ts,tsx,scss}\" --write"
@@ -102,7 +104,10 @@
   "prettier": {
     "trailingComma": "es5",
     "singleQuote": true,
-    "printWidth": 120
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true
   },
   "engines": {
     "node": ">=10"

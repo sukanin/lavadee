@@ -24,8 +24,7 @@ module.exports = merge(common, {
     require.resolve('react-app-polyfill/ie11'),
     'webpack-hot-middleware/client?reload=true',
     path.join(process.cwd(), 'public/app/index.tsx'), // Start with js/app.js
-    './public/sass/lavadee.dark.scss',
-    './public/sass/lavadee.light.scss',
+    './public/sass/lavadee.scss',
   ],
 
   output: {

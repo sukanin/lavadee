@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TodoApp } from './components/TodoApp';
+import { App } from './containers/App/App';
+import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
 
-ReactDOM.render(<TodoApp />, document.getElementById('app'));
+initializeIcons(/* optional base url */);
+
+ReactDOM.render(<App />, document.getElementById('app'));
