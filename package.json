@@ -3,23 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@rtsao/plugin-proposal-class-properties": "^7.0.1-patch.1",
     "@types/jest": "24.0.15",
     "@types/node": "12.6.3",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
+    "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
+    "core-js": "3",
     "css-loader": "^3.1.0",
     "fork-ts-checker-webpack-plugin": "^1.4.3",
+    "html-webpack-harddisk-plugin": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.1",
     "jquery": "3.4.1",
+    "lint-staged": "^9.2.0",
     "lodash.template": "^4.5.0",
     "mini-css-extract-plugin": "^0.8.0",
     "office-ui-fabric-react": "^7.10.0",
     "postcss-browser-reporter": "^0.6.0",
     "postcss-loader": "^3.0.0",
     "postcss-reporter": "^6.0.1",
+    "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.12.8",
     "react-scripts": "3.0.1",
     "sass-loader": "^7.1.0",
     "scss-loader": "^0.0.1",
@@ -32,9 +42,33 @@
     "webpack-merge": "^4.2.1"
   },
   "scripts": {
-    "start": "webpack --progress --colors --mode development --config scripts/webpack/webpack.dev.js"
+    "start": "webpack --progress --colors --mode development --config scripts/webpack/webpack.dev.js",
+    "dev": "webpack-dev-server --progress --colors --mode development --config scripts/webpack/webpack.hot.js",
+    "prettier:check": "prettier --list-different \"**/*.{ts,tsx,scss}\"",
+    "prettier:write": "prettier --list-different \"**/*.{ts,tsx,scss}\" --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,json,scss}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*pkg/**/*.go": [
+      "gofmt -w -s",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 120
   },
   "devDependencies": {
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
   }
 }

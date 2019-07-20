@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../../public/build'),
     filename: '[name].[hash].js',
-    // Keep publicPath relative for host.com/grafana/ deployments
+    // Keep publicPath relative for deployments
     publicPath: 'public/build/',
   },
   resolve: {
@@ -47,7 +47,6 @@ module.exports = {
         test: /\.html$/,
         exclude: /(index|error)\-template\.html/,
         use: [
-          { loader: 'ngtemplate-loader?relativeTo=' + (path.resolve(__dirname, '../../public')) + '&prefix=public' },
           {
             loader: 'html-loader',
             options: {
