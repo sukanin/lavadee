@@ -1,9 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { App } from './containers/App/App';
-import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
+import { createSite } from './utilities/createSite';
+import { SiteDefinition } from './SiteDefinition/index';
+import { HomePage } from './pages/HomePage/HomePage';
+import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 
-// Register icons and pull the fonts from the default SharePoint cdn.
-initializeIcons();
-
-ReactDOM.render(<App />, document.getElementById('main'));
+createSite(SiteDefinition, [NotFoundPage, HomePage]);

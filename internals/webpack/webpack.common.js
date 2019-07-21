@@ -1,5 +1,3 @@
-/* eslint-disable no-useless-escape */
-
 const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -29,6 +27,38 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.scss$/,
+        enforce: 'pre',
+        exclude: [/node_modules/],
+        use: [
+          {
+            loader: '@microsoft/loader-load-themed-styles', // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-modules-typescript-loader',
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS
+            options: {
+              modules: true,
+              importLoaders: 2,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins() {
+                // eslint-disable-next-line global-require
+                return [require('autoprefixer')];
+              },
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
+      },
+      {
         test: require.resolve('jquery'),
         use: [
           {
@@ -43,6 +73,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
+        // eslint-disable-next-line no-useless-escape
         exclude: /(index|error)\-template\.html/,
         use: [
           {
