@@ -6,8 +6,8 @@ import { platforms } from './SiteDefinition.platforms';
 
 export const SiteDefinition: ISiteDefinition<Platforms> = {
   siteTitle: 'Office UI Fabric',
-  siteLogoSource:
-    'https://static2.sharepointonline.com/files/fabric/fabric-website/images/microsoftuifabric-logo-rgb_no-padding.svg',
+  siteLogoSource: '',
+  //  'https://static2.sharepointonline.com/files/fabric/fabric-website/images/microsoftuifabric-logo-rgb_no-padding.svg',
   platforms,
   pages: [
     {

@@ -298,6 +298,7 @@ export class Site<TPlatforms extends string = string> extends React.Component<
     const { platform } = this.state;
     const { siteDefinition, hasUHF } = this.props;
 
+    // if it not has the Universal Header and Footer
     if (!hasUHF) {
       return (
         <TopNav
