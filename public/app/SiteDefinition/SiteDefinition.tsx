@@ -5,9 +5,8 @@ import { Platforms } from '../interfaces/Platforms';
 import { platforms } from './SiteDefinition.platforms';
 
 export const SiteDefinition: ISiteDefinition<Platforms> = {
-  siteTitle: 'Office UI Fabric',
+  siteTitle: 'LaVaDee',
   siteLogoSource: '',
-  //  'https://static2.sharepointonline.com/files/fabric/fabric-website/images/microsoftuifabric-logo-rgb_no-padding.svg',
   platforms,
   pages: [
     {
@@ -24,22 +23,6 @@ export const SiteDefinition: ISiteDefinition<Platforms> = {
     StylesPages,
     ControlsPages,
     ResourcesPages,
-    {
-      title: 'Demo Loading Page',
-      url: '#/ms-loading',
-      isHiddenFromMainNav: true,
-      component: () => <LoadingComponent title="Demo Loading Page" />,
-    },
-    {
-      title: 'Template Page',
-      url: '#/ms-page-template',
-      isHiddenFromMainNav: true,
-      component: () => <LoadingComponent title="Template Page" />,
-      getComponent: cb =>
-        require.ensure([], require =>
-          cb(require<any>('../pages/PageTemplates/TemplatePage/TemplatePage').TemplatePage)
-        ),
-    },
   ],
   redirects: [
     { from: '#/customizations/', to: '#/controls/web/customizations/' },
